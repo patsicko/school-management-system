@@ -6,10 +6,13 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { DataSource } from 'typeorm';
 import { StudentModule } from './student/student.module';
 import { ExamModule } from './exam/exam.module';
+import { jwtConfig } from './user/jwt.config';
+import { JwtModule } from '@nestjs/jwt';
 
 
 @Module({
   imports: [
+    JwtModule.register(jwtConfig),
     TypeOrmModule.forRoot({
       type: 'mysql',
       host: 'localhost',
